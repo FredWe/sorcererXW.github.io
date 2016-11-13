@@ -161,11 +161,103 @@
 	
 	
 
-    <body id="scheme-Paradox">
+    <body id="scheme-Isolation">
 
 		
         <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
 				
+			
+				<!-- Isolation Header -->
+				<header class="header">
+	<div class="header-wrapper">
+		
+		<!-- Header Copyright -->
+		<div class="header-copyright">
+			<div class="header-site">
+				©&nbsp;<script type="text/javascript">var fd = new Date();document.write(fd.getFullYear());</script>&nbsp;SorcererXW's Blog
+			</div>
+			<!-- 
+			I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+			It will not impact the appearance and can give developers a lot of support :)
+
+			很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+			它不会影响美观并可以给开发者很大的支持。 :) 
+			-->
+			<div>
+				Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a>
+				<br>
+				Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a>
+			</div>
+			
+		</div>
+
+		<!-- Header Title -->
+		<span class="header-title header-item">
+			<a href="/" title="SorcererXW&#39;s Blog">
+				SorcererXW&#39;s Blog
+			</a>
+		</span>
+
+		<p class="header-slogan header-item">
+			Hi, nice to meet you
+		</p>
+		
+		<!-- Header Nav -->
+		<nav class="header-nav header-item">
+
+			<span class="header-nav-item">
+				<a href="/" title="Home">
+					<span>Casa</span>
+				</a>
+			</span>
+
+			
+            
+			
+            
+
+		</nav>
+
+		<!-- Header SNS -->
+		<div class="header-item header-sns_list">
+    <!-- Twitter -->
+    
+    
+    
+    <!-- Facebook -->
+    
+    
+    
+    <!-- Google + -->
+    
+    
+    
+    <!-- Weibo -->
+    
+    <a href="http://www.weibo.com/2262804212" target="view_window">
+		<i class="fa fa-weibo fa-lg" aria-hidden="true"></i>
+	</a>
+    
+    
+    <!-- Instagram -->
+    
+    
+    
+    <!-- Tumblr -->
+    
+    
+    
+    <!-- Github -->
+    
+    <a href="https://github.com/sorcererxw" target="view_window">
+		<i class="fa fa-github fa-lg" aria-hidden="true"></i>
+	</a>
+    
+</div>
+
+
+	</div>
+</header>
 			
 			
             <!-- Main Container -->
@@ -175,23 +267,8 @@
                 <div id="top"></div>
 				
 				
-                <!-- Hamburger Button -->
-                <button class="MD-burger-icon sidebar-toggle">
-                    <span class="MD-burger-layer"></span>
-                </button>
-				
 				
                 
-	<!-- Back Button -->
-	<div class="material-back" id="backhome-div" tabindex="0">
-		<a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" href="#" onclick="window.history.back();return false;" target="_self" role="button" data-upgraded=",MaterialButton,MaterialRipple">
-			<i class="material-icons" role="presentation">arrow_back</i>
-			<span class="mdl-button__ripple-container">
-				<span class="mdl-ripple"></span>
-			</span>
-		</a>
-	</div>			
-
 
 <!-- Layouts -->
 
@@ -202,103 +279,36 @@
 
                 <!-- Post Header(Thumbnail & Title) -->
                 
-	<!-- Paradox Post Header -->
 	
-		
-			<!-- Random Thumbnail -->
-			<div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-				<script>
-    
-    var randomNum;
-    randomNum = Math.floor(Math.random() * 5 + 1);
-    
-    $(".post_thumbnail-random").css('background-image', 'url(' + '/img/random/' + randomNum + '.png' + ')');
-    
-</script>
 
-		
+	<!-- Isolation Post Header -->
+	<!-- Post thumbnail -->
 	
-        <p class="article-headline-p">
-            Xposed开发指南
-        </p>
-    </div>
-
+		<!-- Post Header Info -->
+		<div class="post-header_info without-thumbnail">
+			<!-- Author Avatar & Name -->
+			<img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="SorcererXW's avatar">
+			<span class="name-span">SorcererXW</span>
+		</div>
 	
+		<!-- Null Thumbnail -->
+		<div class="post_thumbnail-null">
+	
+	</div>
 
 				
-				
-					<!-- Paradox Post Info -->
-					<div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-    
-    <!-- Author Avatar -->
-    <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
-    </div>
-    <!-- Author Name & Date -->
-    <div>
-        <strong>SorcererXW</strong>
-        <span>Sep 13, 2015</span>
-    </div>
-    
-    <div class="section-spacer"></div>
-	
-    <!-- Favorite -->
-<!--
-    <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
-        <i class="material-icons" role="presentation">favorite</i>
-        <span class="visuallyhidden">favorites</span>
-    </button>
--->
-    
-    <!-- Tags (bookmark) -->
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        
-    </ul>
-    
-    <!-- Share -->
-    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-    <i class="material-icons" role="presentation">share</i>
-    <span class="visuallyhidden">share</span>
-</button>
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
-    
-    
-    
-    
-    
-    <!-- Share Twitter -->
-    <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Xposed开发指南&url=http://yoursite.com//2015/09/13/Xposed开发指南/index.html&via=SorcererXW" target="_blank">
-        <li class="mdl-menu__item">
-            Twitter での共有
-        </li>
-    </a>
-    
-    <!-- Share Google+ -->
-    <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com//2015/09/13/Xposed开发指南/index.html" target="_blank">
-        <li class="mdl-menu__item">
-            Google+ での共有
-        </li>
-    </a>
-    
-    <!-- Share Weibo -->
-    <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Xposed开发指南&url=http://yoursite.com//2015/09/13/Xposed开发指南/index.html&pic=&searchPic=false&style=simple" target="_blank">
-        <li class="mdl-menu__item">
-            Weibo での共有
-        </li>
-    </a>
-</ul>
-</div>
 				
 
                 <!-- Post Content -->
                 <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
 	
-		<blockquote>
+	
+	
+		<div class="post-content_wrapper">
+			<p class="post-title">
+				Xposed开发指南
+			</p>
+			<blockquote>
 <p><strong>声明</strong>: 原创, 翻译自rovo89的官方<a href="https://github.com/rovo89/XposedBridge/wiki/Development-tutorial" target="_blank" rel="external">Development tutorial</a><br>已全部翻译, 待修改 | 最后修改于: 2015年9月16日<br>水平有限, 仅供参考.</p>
 </blockquote>
 <p>好了…你应该是想要学习如何创建一个全新的Xposed模块吧? 阅读这篇指南(或者说是”扩展教程”)来学习吧. 这篇文章包含但不限于”教程”, 还包括关于这件事背后的思考. 这样子的思考 会让你认识到你创造的东西的价值, 并且理解你在干什么和为什么要这么干. 如果你觉得文章太长了, 读不下, 你可以只看最后的源代码部分<code>Making the project an Xposed module</code>. 但是你如果读完了整篇文章你会获得更好的理解. 你会省下到时候回头来读的时间, 因为你如果读完了整篇文章, 你就没必要去亲自去理解每个细节.</p>
@@ -337,12 +347,14 @@
 <h1 id="笑看最后的结果"><a href="#笑看最后的结果" class="headerlink" title="笑看最后的结果"></a>笑看最后的结果</h1><p>现在再一次安装并启动的你的应用. 因为第一次安装时候, 你已经在Xposed Installer当中授权了这个应用, 你不需要再一次进行授权, 重启就够了. 然而, 你可能想要停止使用红色时钟, 只需要去取消授权即可. 如果原生和你修改模块都使用了默认的优先级, 那你也说不清哪个优先级更高(这个取决于handler方法的字符串代表, 并不依赖于模块).</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>我也知道这个教程挺长的. 但是我希望你不只是实现一个绿色的时钟, 而是更多完全不一样的东西.如何找到好的方法去hook取决于你的经验, 所以要从简单的事情开始. 在一开始请尝试用Log在控制台输出, 以保证每一个地方都如你预期被调用. 另外, 衷心地祝福你在其中获得快乐.</p>
 
-	
-	
+		</div>
 	
 	
 </div>
 				
+				
+					<!-- Paradox Post Info -->
+					
 				
 
                 <!-- Post Comments -->
@@ -361,7 +373,7 @@
                 <i class="material-icons">arrow_back</i>
             </button>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新しいです
+            Más nuevo
         </a>
     
 
@@ -376,250 +388,12 @@
 
 				
 				
-					<!-- Overlay For Active Sidebar -->
-<div class="sidebar-overlay "></div>
-
-<!-- Material sidebar -->
-<aside id="sidebar" class="sidebar sidebar-colored  sidebar-fixed-left" role="navigation">
-	<div id="sidebar-main">
-	    <!-- Sidebar Header -->
-		<div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
-    <!-- Top bar -->
-    <div class="top-bar"></div>
-
-    <!-- Sidebar toggle button -->
-    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
-    <i class="material-icons">clear_all</i>
-    <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>
-
-    <!-- Sidebar Avatar -->
-    <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="SorcererXW's avatar">
-    </div>
-
-    <!-- Sidebar Email -->
-    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        sorcerer@sorcererxw.com
-        <b class="caret"></b>
-    </a>
-</div>
-
-		<!-- Sidebar Navigation  -->
-		<ul class="nav sidebar-nav">
-    <!-- User dropdown  -->
-    <li class="dropdown">
-        <ul id="settings-dropdown" class="dropdown-menu">
-			
-                <li>
-                    <a href="#" target="_blank" title="Email Me">
-						<i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
-                        Email Me
-                    </a>
-                </li>
-            
-        </ul>
-    </li>
-
-    <!-- Homepage -->
-    <li id="sidebar-first-li">
-        <a href="/" target="_self">
-            <i class="material-icons sidebar-material-icons">home</i>
-             ホーム
-        </a>
-    </li>
-
-    <!-- I'm Feeling Lucky -->
-<!--
-    <li class="dropdown">
-        <a href="" target="_self">
-            <i class="material-icons sidebar-material-icons">explore</i>
-             sidebar.imlucky
-        </a>
-    </li>
--->
-
-	
-    <!-- Archives  -->
-    <li class="dropdown">
-        <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-            <i class="material-icons sidebar-material-icons">inbox</i>
-             アーカイブズ
-            <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-            <li>
-            <a class="sidebar_archives-link" href="/archives/2016/01/">January 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/12/">December 2015<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/09/">September 2015<span class="sidebar_archives-count">1</span></a>
-        </ul>
-    </li>
-
-    <!-- Divider -->
-    <li class="divider"></li>
-
-
-    <!-- Pages  -->
-	
-	
-	
-
-    <!-- Article Numebr  -->
-    <li>
-        <a href="#">
-             記事番号
-             <span class="sidebar-badge">3</span>
-        </a>
-    </li>
-</ul>
-
-		<!-- Sidebar Divider -->
-		<div class="sidebar-divider"></div>
-
-		<!-- Sidebar Footer -->
-		<!-- 
-I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
-If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
-It will not impact the appearance and can give developers a lot of support :)
-
-很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
-如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
-它不会影响美观并可以给开发者很大的支持。 :) 
--->
-
-<!-- Theme Material -->
-<a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-	<div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-		テーマ - Material
-		<span class="sidebar-badge badge-circle">i</span>
-	</div>
-</a>
-
-<!-- Help & Support -->
-<!--
-<a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
-    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-		sidebar.help
-		<span class="mdl-button__ripple-container">
-			<span class="mdl-ripple"></span>
-		</span>
-	</div>
-</a>
--->
-
-<!-- Feedback -->
-<!--
-<a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
-    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-         sidebar.feedback
-                    <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
-</a>
--->
-
-<!-- Abount Theme -->
-<!--
-<a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
-    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-         sidebar.about_theme
-        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
-</a>-->
-
-	</div>
-    
-    <!-- Sidebar Sponsor -->
-    
-
-
-</aside>
-
 				
-				
-				
-					<!-- Floating Action Button -->
-<div class="fabs">
-    <a href="#top" class="fab toTop">
-        <i class="material-icons">expand_less</i>
-    </a>
-    
-    
-        <!-- Post Nav -->
-        
-            <a class="prev-content fab" href="/2015/12/21/Root Android Without Recovery & Replace Kingroot/" title="Root Android Without Recovery &amp; Replace Kingroot"><i class="material-icons">keyboard_arrow_left</i></a>
-        
-
-        
-    
-    
-    
-    
-    <a href="#bottom" class="fab toBottom">
-        <i class="material-icons">keyboard_arrow_down</i>
-    </a>
-    
-    <a id="prime" class="fab">
-        <i class="material-icons prime-i-add">add</i>
-    </a>
-</div>
 				
 				
 				<!--Footer-->
 <footer class="mdl-mini-footer" id="bottom">
 	
-	
-		<!-- Paradox Footer Left Section -->
-		<div class="mdl-mini-footer--left-section sns-list">
-    <!-- Twitter -->
-    
-    
-    
-    <!-- Facebook -->
-    
-    
-    
-    <!-- Google + -->
-    
-    
-    
-    <!-- Weibo -->
-    
-    <a href="http://www.weibo.com/2262804212" target="view_window"><button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-weibo.png);">
-        <span class="visuallyhidden">Weibo</span>
-    </button></a>
-    
-    
-    <!-- Instagram -->
-    
-    
-    
-    <!-- Tumblr -->
-    
-    
-    
-    <!-- Github -->
-    
-    <a href="github.com/sorcererxw" target="view_window"><button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
-        <span class="visuallyhidden">Github</span>
-    </button></a>
-    
-</div>
-
-
-		<!--Copyright-->
-		<div id="copyright">Copyright&nbsp;©&nbsp;<script type="text/javascript">var fd = new Date();document.write(fd.getFullYear());</script>&nbsp;SorcererXW's Blog</div>
-
-		<!-- Paradox Footer Right Section -->
-
-		<!-- 
-		I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright.
-		It will not impact the appearance and can give developers a lot of support :)
-
-		很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
-		它不会影响美观并可以给开发者很大的支持。 :) 
-		-->
-
-		<div class="mdl-mini-footer--right-section">
-			<div>
-				<div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-				<div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
-			</div>
-		</div>
 	
     
 </footer>
