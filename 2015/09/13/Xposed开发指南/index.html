@@ -16,7 +16,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#039BE5">
+    <meta name="theme-color" content="#0097A7">
     <meta name="author" content="SorcererXW">
     <meta name="description" content="No description...">
     <meta name="keywords" content="null">
@@ -56,30 +56,81 @@
     <link rel="stylesheet" href="/css/style.min.css">
     <!-- Config CSS -->
 
-<!-- Theme Background -->
+
+<!-- Other Styles -->
+<style>
+	body, html{
+		font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+	}
+	
+    a{
+        color: #00838F
+    }
+    
+    .mdl-card__media,
+    #search-label,
+    #search-form-label:after,
+    #scheme-Paradox .hot_tags-count,
+    #scheme-Paradox .sidebar_archives-count,
+    #scheme-Paradox .sidebar-colored .sidebar-header,
+    #scheme-Paradox .sidebar-colored .sidebar-badge{
+        background-color: #0097A7 !important
+    }
+    
+	/* Sidebar User Drop Down Menu Text Color */
+	#scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+    #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus{
+        color: #0097A7 !important
+    }
+    
+    #post_entry-right-info,
+    .sidebar-colored .sidebar-nav li:hover > a,
+    .sidebar-colored .sidebar-nav li:hover > a i,
+    .sidebar-colored .sidebar-nav li > a:hover,
+    .sidebar-colored .sidebar-nav li > a:hover i,
+    .sidebar-colored .sidebar-nav li > a:focus i,
+    .sidebar-colored .sidebar-nav > .open > a,
+    .sidebar-colored .sidebar-nav > .open > a:hover,
+    .sidebar-colored .sidebar-nav > .open > a:focus,
+    #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a{
+        color: #0097A7 !important
+    }
+    
+    .toTop{
+        background: #757575 !important
+    }
+		
+	.material-layout .material-post>.material-nav,
+	.material-layout .material-index>.material-nav,
+	.material-nav a{
+		color: #757575;
+	}
+		
+	#scheme-Paradox .MD-burger-layer {
+		background-color: #757575;
+	}
+
+	#scheme-Paradox #post-toc-trigger-btn{
+		color: #757575;
+	}
+	
+	.post-toc a:hover{
+		color: #00838F;
+		text-decoration: underline;
+	}
+</style>
+
+
+<!-- Theme Background Related-->
 
     <style>
         body{
             background-color: #F5F5F5
         }
 		
+		/* blog_info bottom background */
         #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
             background-color: #fff;
-        }
-		
-        #scheme-Paradox .MD-burger-layer {
-            background-color: #666;
-        }
-		
-        #scheme-Paradox .material-back{
-            color: #666;
-        }
-		
-        .material-layout .material-post>.material-nav,
-		.material-layout .material-index>.material-nav,
-        .material-nav a,
-        #scheme-Paradox .material-post_container .material-back{
-            color: #666;
         }
     </style>
 
@@ -104,50 +155,6 @@
         }
     </style>
 
-
-<!-- Other Styles -->
-<style>
-	body, html{
-		font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-	}
-	
-    a{
-        color: #039BE5
-    }
-    
-    .mdl-card__media,
-    #search-label,
-    #search-form-label:after,
-    #scheme-Paradox .hot_tags-count,
-    #scheme-Paradox .sidebar_archives-count,
-    #scheme-Paradox .sidebar-colored .sidebar-header,
-    #scheme-Paradox .sidebar-colored .sidebar-badge{
-        background-color: #039BE5 !important
-    }
-    
-	/* Sidebar User Drop Down Menu Text Color */
-	#scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
-    #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus{
-        color: #039BE5 !important
-    }
-    
-    #post_entry-right-info,
-    .sidebar-colored .sidebar-nav li:hover > a,
-    .sidebar-colored .sidebar-nav li:hover > a i,
-    .sidebar-colored .sidebar-nav li > a:hover,
-    .sidebar-colored .sidebar-nav li > a:hover i,
-    .sidebar-colored .sidebar-nav li > a:focus i,
-    .sidebar-colored .sidebar-nav > .open > a,
-    .sidebar-colored .sidebar-nav > .open > a:hover,
-    .sidebar-colored .sidebar-nav > .open > a:focus,
-    #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a{
-        color: #039BE5 !important
-    }
-    
-    .toTop{
-        background: #00BCD4 !important
-    }
-</style>
 	<script src="/js/jquery.min.js"></script>
 	
 	<!-- UC Browser Compatible-->
@@ -187,6 +194,7 @@
 				
                 
 	<!-- Back Button -->
+<!--
 	<div class="material-back" id="backhome-div" tabindex="0">
 		<a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" href="#" onclick="window.history.back();return false;" target="_self" role="button" data-upgraded=",MaterialButton,MaterialRipple">
 			<i class="material-icons" role="presentation">arrow_back</i>
@@ -195,12 +203,27 @@
 			</span>
 		</a>
 	</div>			
+-->
+	<!-- Left aligned menu below button -->
+	<button id="post-toc-trigger-btn"
+			class="mdl-button mdl-js-button mdl-button--icon">
+	  <i class="material-icons">format_list_numbered</i>
+	</button>
+
+	<ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+		for="post-toc-trigger-btn">
+			
+			<ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一个修改系统的项目"><span class="post-toc-number">1.</span> <span class="post-toc-text">一个修改系统的项目</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Xposed的工作原理"><span class="post-toc-number">2.</span> <span class="post-toc-text">Xposed的工作原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#hook和取代一个方法"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">hook和取代一个方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#创建一个项目"><span class="post-toc-number">3.</span> <span class="post-toc-text">创建一个项目</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#把这个项目Xposed化"><span class="post-toc-number">4.</span> <span class="post-toc-text">把这个项目Xposed化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AndroidManifest-xml"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">AndroidManifest.xml</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#XposedBridgeApi-jar"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">XposedBridgeApi.jar</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Module-implementation"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">Module implementation</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#assets-xposed-init"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">assets/xposed_init</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#试着运行一下"><span class="post-toc-number">5.</span> <span class="post-toc-text">试着运行一下</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#寻找你的目标并修改它"><span class="post-toc-number">6.</span> <span class="post-toc-text">寻找你的目标并修改它</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用应用来寻找并hook方法"><span class="post-toc-number">7.</span> <span class="post-toc-text">使用应用来寻找并hook方法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#最后一步-在方法调用前后执行你的代码"><span class="post-toc-number">8.</span> <span class="post-toc-text">最后一步: 在方法调用前后执行你的代码</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#笑看最后的结果"><span class="post-toc-number">9.</span> <span class="post-toc-text">笑看最后的结果</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">10.</span> <span class="post-toc-text">总结</span></a></li></ol>
+		
+<!--			<li class="mdl-menu__item">Some Action</li>-->
+	</ul>
 
 
 <!-- Layouts -->
 
     <!-- Post Module -->
     <div class="material-post_container">
+		
         <div class="material-post mdl-grid">
             <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
 
@@ -312,7 +335,7 @@
 <h1 id="创建一个项目"><a href="#创建一个项目" class="headerlink" title="创建一个项目"></a>创建一个项目</h1><p>一个模块就是一个普通的app, 只是有一些特殊的meta信息和文件. 所以, 先创建一个全新的Android项目. 我现在假设你已经在这之前做好了这件事. 如果没有, 在<a href="http://developer.android.com/sdk/installing.html" target="_blank" rel="external">官方文档</a>里面已经很细致地教你怎么做了. 至于SDK的问题, 我选择了4.0.3(API 15). 我建议你尝试也这么去做, 并且暂时不要轻易去尝试其他版本. 你不需要创建一个Activity, 因为修改系统不需要任何UI界面. 在我回答玩这个问题之后, 我想你应该已经有了一个空白的项目了吧.</p>
 <h1 id="把这个项目Xposed化"><a href="#把这个项目Xposed化" class="headerlink" title="把这个项目Xposed化"></a>把这个项目Xposed化</h1><p>现在, 我们将这个项目转化成一个会被Xposed加载的模块吧. 会有一些必要的步骤.</p>
 <h2 id="AndroidManifest-xml"><a href="#AndroidManifest-xml" class="headerlink" title="AndroidManifest.xml"></a>AndroidManifest.xml</h2><p>在Xposed Installer里面的模块列表会根据应用中是否包含特殊的meta信息标志来判断是否是Xposed模块. 你可以根据<code>AndroidManifest.xml =&gt; Application =&gt; Application Nodes (at the bottom) =&gt; Add =&gt; Meta Data</code>来实现. 标签的名字应该是<code>xposedmodule</code>并且相应的值应该是<code>true</code>. 然后保证这个项目其他资源是空的. 然后在<code>xposedminversion</code>和<code>xposeddescription</code>(关于你的模块的一个非常短小的描述)中重复同样的事情. XML文件应该看起来像这样:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">package</span>=<span class="string">"de.robv.android.xposed.mods.tutorial"</span></div><div class="line">    <span class="attr">android:versionCode</span>=<span class="string">"1"</span></div><div class="line">    <span class="attr">android:versionName</span>=<span class="string">"1.0"</span> &gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">uses-sdk</span> <span class="attr">android:minSdkVersion</span>=<span class="string">"15"</span> /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">application</span></span></div><div class="line">        <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_launcher"</span></div><div class="line">        <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span> &gt;</div><div class="line">        <span class="tag">&lt;<span class="name">meta-data</span></span></div><div class="line">            <span class="attr">android:name</span>=<span class="string">"xposedmodule"</span></div><div class="line">            <span class="attr">android:value</span>=<span class="string">"true"</span> /&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">meta-data</span></span></div><div class="line">            <span class="attr">android:name</span>=<span class="string">"xposeddescription"</span></div><div class="line">            <span class="attr">android:value</span>=<span class="string">"Easy example which makes the status bar clock red and adds a smiley"</span> /&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">meta-data</span></span></div><div class="line">            <span class="attr">android:name</span>=<span class="string">"xposedminversion"</span></div><div class="line">            <span class="attr">android:value</span>=<span class="string">"30"</span> /&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">application</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h2 id="XposedBridgeApi-jar"><a href="#XposedBridgeApi-jar" class="headerlink" title="XposedBridgeApi.jar"></a>XposedBridgeApi.jar</h2><p>接下来, 你要让这个项目能够调用XposedBridge的API. 你可以从<a href="http://forum.xda-developers.com/xposed/xposed-api-changelog-t2714067" target="_blank" rel="external">XDA帖子</a>的一楼下载<code>XposedBridgeApi-&lt;version&gt;.jar</code>. 将这个jar复制到项目一个叫作<code>lib</code>的子目录, 然后右键这个文件并选择Build Path =&gt; Add to Build Path(Android Studio可以看我的<a href="http://sorcererxw.com/post/gong-ju/android-studiodao-ru-jarde-fang-fa" target="_blank" rel="external">文章</a>). 文件名当中的<code>&lt;version&gt;</code>就是你要作为<code>xposedminversion</code>插入manifest中的值.</p>
+<h2 id="XposedBridgeApi-jar"><a href="#XposedBridgeApi-jar" class="headerlink" title="XposedBridgeApi.jar"></a>XposedBridgeApi.jar</h2><p>接下来, 你要让这个项目能够调用XposedBridge的API. 你可以从<a href="http://forum.xda-developers.com/xposed/xposed-api-changelog-t2714067" target="_blank" rel="external">XDA帖子</a>的一楼下载<code>XposedBridgeApi-&lt;version&gt;.jar</code>. 将这个jar复制到项目一个叫作<code>lib</code>的子目录, 然后右键这个文件并选择Build Path =&gt; Add to Build Path(Android Studio可以看我的<a href="http://sorcererxw.com/post/gong-ju/android-studiodao-ru-jarde-fang-fa">文章</a>). 文件名当中的<code>&lt;version&gt;</code>就是你要作为<code>xposedminversion</code>插入manifest中的值.</p>
 <blockquote>
 <p>确保这个API类没有被包含在你编译出来的APK文件当中(仅仅去引用这个API). 否则, 你会遇到<code>IllegalAccessError</code>. 放在<code>libs</code>(注意是加`s`的)文件夹下面的文件会被Eclipse自动包含到APK当中, 所以不要将API文件放在这里面.</p>
 </blockquote>
@@ -352,8 +375,6 @@
                 <!-- Post Comments -->
                 
 
-
-				
 
             </div>
 
@@ -467,7 +488,7 @@
 
     <!-- Article Numebr  -->
     <li>
-        <a href="#">
+        <a href="/archives">
              文章总数
              <span class="sidebar-badge">4</span>
         </a>
@@ -576,6 +597,9 @@ It will not impact the appearance and can give developers a lot of support :)
     
     <!-- Github -->
     
+    <a href="https://github.com/sorcererxw" target="view_window"><button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+        <span class="visuallyhidden">Github</span>
+    </button></a>
     
 </div>
 
@@ -642,9 +666,19 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+<!-- Swiftye -->
 
 
+<!-- Local Search-->
 
+
+<!-- Window Load-->
+<script>
+    // Post_Toc parent position fixed
+    $(window).load(function() {
+        $(".post-toc-wrap").parent(".mdl-menu__container").css("position", "fixed");
+    });
+</script>
             </main>
         </div>
 		
