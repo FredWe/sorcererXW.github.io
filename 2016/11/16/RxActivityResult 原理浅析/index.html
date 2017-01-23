@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.2.6 -->
+
     <!-- Title -->
     
     <title>
-        RxActivityResult 原理浅析 | SorcererXW&#39;s Blog
+        
+            RxActivityResult 原理浅析 | 
+        
+        SorcererXW&#39;s Blog
     </title>
-    
+
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
     <link rel="icon" sizes="192x192" href="/img/favicon.png">
     <link rel="apple-touch-icon" href="/img/favicon.png">
-    
-    <!-- Meta & INfo -->
+
+    <!-- Meta & Info -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +28,7 @@
     <meta name="author" content="SorcererXW">
     <meta name="description" content="No description...">
     <meta name="keywords" content="null">
-    
+
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-title" content="Title">
@@ -28,29 +36,29 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="480">
-    
+
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
-    
+
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="SorcererXW&#39;s Blog">
-    
+
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://sorcererxw.com">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="RxActivityResult 原理浅析 | SorcererXW&#39;s Blog">
     <meta property="og:description" content="No description...">
-    
-     <!--[if lte IE 9]>
+
+    <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
-        
+
         
             <script src="/js/ie-blocker.zhCN.js"></script>
         
     <![endif]-->
-    
+
     <!-- Import CSS -->
     <link rel="stylesheet" href="/css/material.min.css">
     <link rel="stylesheet" href="/css/style.min.css">
@@ -59,14 +67,14 @@
 
 <!-- Other Styles -->
 <style>
-	body, html{
-		font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-	}
-	
-    a{
-        color: #00838F
+    body, html {
+        font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
     }
-    
+
+    a {
+        color: #00838F;
+    }
+
     .mdl-card__media,
     #search-label,
     #search-form-label:after,
@@ -74,15 +82,15 @@
     #scheme-Paradox .sidebar_archives-count,
     #scheme-Paradox .sidebar-colored .sidebar-header,
     #scheme-Paradox .sidebar-colored .sidebar-badge{
-        background-color: #0097A7 !important
+        background-color: #0097A7 !important;
     }
-    
-	/* Sidebar User Drop Down Menu Text Color */
-	#scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
-    #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus{
-        color: #0097A7 !important
+
+    /* Sidebar User Drop Down Menu Text Color */
+    #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+    #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+        color: #0097A7 !important;
     }
-    
+
     #post_entry-right-info,
     .sidebar-colored .sidebar-nav li:hover > a,
     .sidebar-colored .sidebar-nav li:hover > a i,
@@ -92,32 +100,32 @@
     .sidebar-colored .sidebar-nav > .open > a,
     .sidebar-colored .sidebar-nav > .open > a:hover,
     .sidebar-colored .sidebar-nav > .open > a:focus,
-    #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a{
-        color: #0097A7 !important
+    #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+        color: #0097A7 !important;
     }
-    
-    .toTop{
-        background: #757575 !important
-    }
-		
-	.material-layout .material-post>.material-nav,
-	.material-layout .material-index>.material-nav,
-	.material-nav a{
-		color: #757575;
-	}
-		
-	#scheme-Paradox .MD-burger-layer {
-		background-color: #757575;
-	}
 
-	#scheme-Paradox #post-toc-trigger-btn{
-		color: #757575;
-	}
-	
-	.post-toc a:hover{
-		color: #00838F;
-		text-decoration: underline;
-	}
+    .toTop {
+        background: #757575 !important;
+    }
+
+    .material-layout .material-post>.material-nav,
+    .material-layout .material-index>.material-nav,
+    .material-nav a {
+        color: #757575;
+    }
+
+    #scheme-Paradox .MD-burger-layer {
+        background-color: #757575;
+    }
+
+    #scheme-Paradox #post-toc-trigger-btn {
+        color: #757575;
+    }
+
+    .post-toc a:hover {
+        color: #00838F;
+        text-decoration: underline;
+    }
 </style>
 
 
@@ -125,10 +133,10 @@
 
     <style>
         body{
-            background-color: #F5F5F5
+            background-color: #F5F5F5;
         }
-		
-		/* blog_info bottom background */
+
+        /* blog_info bottom background */
         #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
             background-color: #fff;
         }
@@ -155,97 +163,109 @@
         }
     </style>
 
-	<script src="/js/jquery.min.js"></script>
-	
-	<!-- UC Browser Compatible-->
-	<script>
-		var agent = navigator.userAgent.toLowerCase();
-		if(agent.indexOf('ucbrowser')>0) {
-			document.write('<link rel="stylesheet" href="/css/uc.css">');
-		   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
-		}
-	</script>
-    
+
+    <script src="/js/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="/css/highlight/solarized-white.css">
+
+    <!-- UC Browser Compatible-->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write('<link rel="stylesheet" href="/css/uc.css">');
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
     <!-- Custom Head -->
     
 </head>
-	
-	
 
-    <body id="scheme-Paradox">
 
-		
-        <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
-				
-			
-			
-            <!-- Main Container -->
-            <main class="material-layout__content" id="main">
-				
-                <!-- Top Anchor -->
-                <div id="top"></div>
-				
-				
-                <!-- Hamburger Button -->
-                <button class="MD-burger-icon sidebar-toggle">
-                    <span class="MD-burger-layer"></span>
-                </button>
-				
-				
+    
+        <body id="scheme-Paradox">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
                 
-	<!-- Back Button -->
-<!--
-	<div class="material-back" id="backhome-div" tabindex="0">
-		<a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" href="#" onclick="window.history.back();return false;" target="_self" role="button" data-upgraded=",MaterialButton,MaterialRipple">
-			<i class="material-icons" role="presentation">arrow_back</i>
-			<span class="mdl-button__ripple-container">
-				<span class="mdl-ripple"></span>
-			</span>
-		</a>
-	</div>			
--->
-	<!-- Left aligned menu below button -->
-	<button id="post-toc-trigger-btn"
-			class="mdl-button mdl-js-button mdl-button--icon">
-	  <i class="material-icons">format_list_numbered</i>
-	</button>
 
-	<ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
-		for="post-toc-trigger-btn">
-			
-			<ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用方法"><span class="post-toc-number">1.</span> <span class="post-toc-text">使用方法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#流程与原理"><span class="post-toc-number">2.</span> <span class="post-toc-text">流程与原理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#源码分析"><span class="post-toc-number">3.</span> <span class="post-toc-text">源码分析</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#结语"><span class="post-toc-number">4.</span> <span class="post-toc-text">结语</span></a></li></ol>
-		
-<!--			<li class="mdl-menu__item">Some Action</li>-->
-	</ul>
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用方法"><span class="post-toc-number">1.</span> <span class="post-toc-text">使用方法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#流程与原理"><span class="post-toc-number">2.</span> <span class="post-toc-text">流程与原理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#源码分析"><span class="post-toc-number">3.</span> <span class="post-toc-text">源码分析</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#结语"><span class="post-toc-number">4.</span> <span class="post-toc-text">结语</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
 
 
 <!-- Layouts -->
 
     <!-- Post Module -->
     <div class="material-post_container">
-		
+
         <div class="material-post mdl-grid">
             <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
 
                 <!-- Post Header(Thumbnail & Title) -->
                 
-	<!-- Paradox Post Header -->
-	
-		<!-- Custom Thumbnail -->
-		<div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://ofpmelh8h.bkt.clouddn.com/blog/20161116/210309487.png)">
-	
-        <p class="article-headline-p">
-            RxActivityResult 原理浅析
-        </p>
-    </div>
-
-	
-
-				
-				
-					<!-- Paradox Post Info -->
-					<div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+    <!-- Paradox Post Header -->
     
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://ofpmelh8h.bkt.clouddn.com/blog/20161116/210309487.png)">
+    
+            <p class="article-headline-p">
+                RxActivityResult 原理浅析
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
     <!-- Author Avatar -->
     <div id="author-avatar">
         <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
@@ -255,18 +275,22 @@
         <strong>SorcererXW</strong>
         <span>11月 16, 2016</span>
     </div>
-    
+
     <div class="section-spacer"></div>
-	
+
     <!-- Favorite -->
-<!--
-    <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
-        <i class="material-icons" role="presentation">favorite</i>
-        <span class="visuallyhidden">favorites</span>
-    </button>
--->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
     
+
     <!-- Tags (bookmark) -->
+    
     <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
         <i class="material-icons" role="presentation">bookmark</i>
         <span class="visuallyhidden">bookmark</span>
@@ -276,6 +300,7 @@
         
     </ul>
     
+
     <!-- Share -->
     <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
     <i class="material-icons" role="presentation">share</i>
@@ -283,38 +308,63 @@
 </button>
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
     
+
     
-    
-    
-    
-    <!-- Share Twitter -->
-    <a class="post_share-link" href="https://twitter.com/intent/tweet?text=RxActivityResult 原理浅析&url=http://sorcererxw.com//2016/11/16/RxActivityResult 原理浅析/index.html&via=SorcererXW" target="_blank">
-        <li class="mdl-menu__item">
-            分享到 Twitter
-        </li>
-    </a>
-    
-    <!-- Share Google+ -->
-    <a class="post_share-link" href="https://plus.google.com/share?url=http://sorcererxw.com//2016/11/16/RxActivityResult 原理浅析/index.html" target="_blank">
-        <li class="mdl-menu__item">
-            分享到 Google+
-        </li>
-    </a>
-    
+
     <!-- Share Weibo -->
-    <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=RxActivityResult 原理浅析&url=http://sorcererxw.com//2016/11/16/RxActivityResult 原理浅析/index.html&pic=&searchPic=false&style=simple" target="_blank">
-        <li class="mdl-menu__item">
-            分享到微博
-        </li>
-    </a>
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=RxActivityResult 原理浅析&url=http://sorcererxw.com//2016/11/16/RxActivityResult 原理浅析/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=RxActivityResult 原理浅析&url=http://sorcererxw.com//2016/11/16/RxActivityResult 原理浅析/index.html&via=SorcererXW" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://sorcererxw.com//2016/11/16/RxActivityResult 原理浅析/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://sorcererxw.com//2016/11/16/RxActivityResult 原理浅析/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
 </ul>
+
 </div>
-				
+
+                
 
                 <!-- Post Content -->
                 <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
-	
-		<blockquote>
+    
+        <blockquote>
 <p>因为刚学RxJava不久, 一直在使用一些基于RxJava的第三方扩展库, 觉得非常神奇, 特别是一些库能够直接代理Activity进行数据处理, 但是因为懒, 一直也没了解其中的原理.</p>
 <p>不过最近使用<a href="https://github.com/VictorAlbertos/RxActivityResult" target="_blank" rel="external">RxActivityResult</a>, 发现有些小地方用得不是特别顺心, 提了issues, 作者也没给个满意的答复, 索性fork了一遍, clone下来试着自己改一下, 顺便读一遍源码.</p>
 </blockquote>
@@ -332,23 +382,25 @@
 <h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>其实分析下来, 发现并没有特别深奥, 就是一开始理解的时候不是很容易理顺其中的逻辑.</p>
 <p>类似的库还有<a href="https://github.com/tbruyelle/RxPermissions" target="_blank" rel="external">RxPermissions</a>, 一个使用RxJava来简化Android 6.0+系统中权限申请的流程, 应该也是通过启动一个透明的中间Activity 并在这个Activity 中申请权限, 得到申请结果后, 然后通过回调告诉订阅者, 具体代码暂时不分析了, 可以去源码库中查看.</p>
 
-	
-	
-	
-	
+    
+
+    
 </div>
-				
-				
+
+
+                
 
                 <!-- Post Comments -->
                 
+                    
 
 
+
+                
             </div>
 
             <!-- Post Prev & Next Nav -->
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
-    
     <!-- Prev Nav -->
     
         <a href="/2016/11/25/Android「卡片中的列表」的实现探索/" id="post_nav-newer" class="prev-content">
@@ -374,26 +426,32 @@
         </a>
     
 </nav>
+
         </div>
     </div>
 
-				
-				
-					<!-- Overlay For Active Sidebar -->
-<div class="sidebar-overlay "></div>
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
 
 <!-- Material sidebar -->
-<aside id="sidebar" class="sidebar sidebar-colored  sidebar-fixed-left" role="navigation">
-	<div id="sidebar-main">
-	    <!-- Sidebar Header -->
-		<div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
     <!-- Top bar -->
     <div class="top-bar"></div>
 
     <!-- Sidebar toggle button -->
     <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
-    <i class="material-icons">clear_all</i>
-    <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
@@ -407,15 +465,16 @@
     </a>
 </div>
 
-		<!-- Sidebar Navigation  -->
-		<ul class="nav sidebar-nav">
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
     <!-- User dropdown  -->
     <li class="dropdown">
         <ul id="settings-dropdown" class="dropdown-menu">
-			
+            
                 <li>
-                    <a href="mailto:sorcerer@sorcererxw.com" target="_blank" title="Email Me">
-						<i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                    <a href="#" target="_blank" title="Email Me">
+                        <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         Email Me
                     </a>
                 </li>
@@ -427,21 +486,20 @@
     <li id="sidebar-first-li">
         <a href="/" target="_self">
             <i class="material-icons sidebar-material-icons">home</i>
-             主页
+            主页
         </a>
     </li>
 
     <!-- I'm Feeling Lucky -->
-<!--
+    <!--
     <li class="dropdown">
         <a href="" target="_self">
             <i class="material-icons sidebar-material-icons">explore</i>
              sidebar.imlucky
         </a>
     </li>
--->
+    -->
 
-	
     <!-- Archives  -->
     <li class="dropdown">
         <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
@@ -455,59 +513,57 @@
         </ul>
     </li>
 
+    <!-- Categories  -->
+    
+
     <!-- Divider -->
     <li class="divider"></li>
 
 
     <!-- Pages  -->
-	
-		<li>
-			<a href="/about" title="关于">
-				关于
-			</a>
-		</li>
-	
+  	
 
     <!-- Article Numebr  -->
     <li>
         <a href="/archives">
-             文章总数
-             <span class="sidebar-badge">5</span>
+            文章总数
+            <span class="sidebar-badge">5</span>
         </a>
     </li>
 </ul>
 
-		<!-- Sidebar Divider -->
-		<div class="sidebar-divider"></div>
 
-		<!-- Sidebar Footer -->
-		<!-- 
+        <!-- Sidebar Divider -->
+        <div class="sidebar-divider"></div>
+
+        <!-- Sidebar Footer -->
+        <!--
 I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
 If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
 It will not impact the appearance and can give developers a lot of support :)
 
 很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
 如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
-它不会影响美观并可以给开发者很大的支持。 :) 
+它不会影响美观并可以给开发者很大的支持和动力。 :)
 -->
 
 <!-- Theme Material -->
 <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-	<div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-		主题 - Material
-		<span class="sidebar-badge badge-circle">i</span>
-	</div>
+    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        主题 - Material
+        <span class="sidebar-badge badge-circle">i</span>
+    </div>
 </a>
 
 <!-- Help & Support -->
 <!--
 <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
     <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-		sidebar.help
-		<span class="mdl-button__ripple-container">
-			<span class="mdl-ripple"></span>
-		</span>
-	</div>
+    sidebar.help
+    <span class="mdl-button__ripple-container">
+      <span class="mdl-ripple"></span>
+    </span>
+  </div>
 </a>
 -->
 
@@ -528,88 +584,103 @@ It will not impact the appearance and can give developers a lot of support :)
         <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
 </a>-->
 
-	</div>
-    
+    </div>
+
     <!-- Sidebar Sponsor -->
     
 
-
 </aside>
 
-				
-				
-				
-					<!-- Footer Top Button -->
-					<div class="toTop-wrap">
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
     <a href="#top" class="toTop">
         <i class="material-icons footer_top-i">expand_less</i>
     </a>
 </div>
-				
-				
-				<!--Footer-->
+
+                    
+
+                    <!--Footer-->
 <footer class="mdl-mini-footer" id="bottom">
-	
-	
-		<!-- Paradox Footer Left Section -->
-		<div class="mdl-mini-footer--left-section sns-list">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
     <!-- Twitter -->
     
-    
-    
+
     <!-- Facebook -->
     
-    
-    
+
     <!-- Google + -->
     
-    
-    
+
     <!-- Weibo -->
     
-    
-    
+
     <!-- Instagram -->
     
-    
-    
+
     <!-- Tumblr -->
     
-    
-    
+
     <!-- Github -->
     
-    <a href="https://github.com/sorcererxw" target="view_window"><button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
-        <span class="visuallyhidden">Github</span>
-    </button></a>
+        <a href="https://github.com/sorcererXW" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
     
 </div>
 
 
-		<!--Copyright-->
-		<div id="copyright">Copyright&nbsp;©&nbsp;<script type="text/javascript">var fd = new Date();document.write(fd.getFullYear());</script>&nbsp;SorcererXW's Blog</div>
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;
+            <script type="text/javascript">
+                var fd = new Date();
+                document.write(fd.getFullYear());
+            </script>
+            &nbsp;SorcererXW's Blog
+        </div>
 
-		<!-- Paradox Footer Right Section -->
+        <!-- Paradox Footer Right Section -->
 
-		<!-- 
-		I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright.
-		It will not impact the appearance and can give developers a lot of support :)
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
 
-		很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
-		它不会影响美观并可以给开发者很大的支持。 :) 
-		-->
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
 
-		<div class="mdl-mini-footer--right-section">
-			<div>
-				<div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-				<div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
-			</div>
-		</div>
-	
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
     
 </footer>
-                
-				<!-- Import File -->
+
+
+                    <!-- Import File -->
+<script src="/js/highlight.min.js"></script>
 <script src="/js/js.min.js"></script>
 <script src="/js/nprogress.js"></script>
 
@@ -618,7 +689,7 @@ It will not impact the appearance and can give developers a lot of support :)
         showSpinner: true
     });
     NProgress.start();
-    
+
     $('#nprogress .bar').css({
         'background': '#FF4081'
     });
@@ -629,7 +700,7 @@ It will not impact the appearance and can give developers a lot of support :)
         'border-top-color': '#FF4081',
         'border-left-color': '#FF4081'
     });
-    
+
     setTimeout(function() {
         NProgress.done();
         $('.fade').removeClass('out');
@@ -637,7 +708,7 @@ It will not impact the appearance and can give developers a lot of support :)
 </script>
 
 
-	<script src="/js/smoothscroll.js"></script>
+
 
 
 
@@ -656,15 +727,17 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Window Load-->
 <script>
-    // Post_Toc parent position fixed
     $(window).load(function() {
-        $(".post-toc-wrap").parent(".mdl-menu__container").css("position", "fixed");
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
 </script>
-            </main>
-        </div>
-		
-    </body>
-		
-	
+
+<!-- MathJax Load-->
+
+
+                </main>
+            </div>
+        </body>
+    
 </html>
