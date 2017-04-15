@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh">
     <head>
-    <!-- 
+    <!--
         © Material Theme
         https://github.com/viosey/hexo-theme-material
-        Version: 1.3.0 -->
+        Version: 1.3.4 -->
 
     <!-- Title -->
     
@@ -15,19 +15,29 @@
         SorcererXW&#39;s Blog
     </title>
 
-    <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
-
     <!-- Meta & Info -->
     <meta charset="utf-8">
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+    
+    
+
     <meta http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="SorcererXW">
     <meta name="description" content="No description...">
     <meta name="keywords" content="null">
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -60,10 +70,11 @@
         
     <![endif]-->
 
-    <!-- Import CSS -->
-    <link rel="stylesheet" href="/css/material.min.css">
-    <link rel="stylesheet" href="/css/style.min.css">
-    <!-- Config CSS -->
+    <!-- Import CSS & jQuery -->
+    
+        <link rel="stylesheet" href="/css/material.min.css">
+        <link rel="stylesheet" href="/css/style.min.css">
+        <!-- Config CSS -->
 
 
 <!-- Other Styles -->
@@ -127,6 +138,7 @@
     color: #00838F;
     text-decoration: underline;
   }
+
 </style>
 
 
@@ -165,9 +177,9 @@
     </style>
 
 
-
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/queue.js"></script>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/queue.js"></script>
+    
 
     <!-- UC Browser Compatible -->
     <script>
@@ -182,12 +194,13 @@
 
     
 
+
     <!-- Bing Background -->
     
 
     <!-- Custom Head -->
     
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 
     
@@ -229,7 +242,11 @@
         </span>
 
         <p class="header-slogan header-item">
-            Hi, nice to meet you
+        
+            
+                Hi, nice to meet you
+            
+        
         </p>
 
         <!-- Header Nav -->
@@ -240,31 +257,20 @@
                 </a>
             </span>
 
-          <!-- Independent Pages -->
-          
+            <!-- Pages  -->
+            
+            
         </nav>
 
         <!-- Header SNS -->
         <div class="header-item header-sns_list">
     <!-- Twitter -->
     
-        <a href="https://twitter.com/twitter" target="_blank">
-            <i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
-        </a>
-    
 
     <!-- Facebook -->
     
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
-        </a>
-    
 
     <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <i class="fa fa-google-plus fa-lg" aria-hidden="true"></i>
-        </a>
     
 
     <!-- Weibo -->
@@ -278,11 +284,19 @@
 
     <!-- Github -->
     
+        <a href="https://github.com/sorcererXW" target="_blank">
+            <i class="fa fa-github fa-lg" aria-hidden="true"></i>
+        </a>
+    
 
     <!-- LinkedIn -->
     
 
     <!-- Telegram -->
+    
+        <a href="https//t.me/sorcererxw" target="_blank">
+            <i class="fa fa-telegram fa-lg" aria-hidden="true"></i>
+        </a>
     
 </div>
 
@@ -352,15 +366,238 @@
 </blockquote>
 <p>先声明一下, 以下内容仅仅包含RxActivityResult 的基本原理与被我精简过的源码, 具体内容可以自己去<a href="https://github.com/VictorAlbertos/RxActivityResult" target="_blank" rel="external">RxActivityResult</a>中看源码.</p>
 <h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>先提一下RxActivityResult 的基本使用方法, 方便在稍后分析中验证</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">RxActivityResult.on(mActivityA)</div><div class="line">        .startIntent(<span class="keyword">new</span> Intent(mActivityA, ActivityB.class)</div><div class="line">                .addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION) <span class="comment">/*移除Activity启动时的动画*/</span>)</div><div class="line">        .subscribe(<span class="keyword">new</span> Action1&lt;Result&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(Result result)</span> </span>&#123;</div><div class="line">                <span class="keyword">if</span> (result.getData() != <span class="keyword">null</span>) &#123;</div><div class="line">                    result.data().getIntExtra(<span class="string">"key"</span>, <span class="number">0</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
+<pre class=" language-java"><code class="language-java">RxActivityResult<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span>mActivityA<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">startIntent</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Intent</span><span class="token punctuation">(</span>mActivityA<span class="token punctuation">,</span> ActivityB<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">addFlags</span><span class="token punctuation">(</span>Intent<span class="token punctuation">.</span>FLAG_ACTIVITY_NO_ANIMATION<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">/*移除Activity启动时的动画*/</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Action1</span><span class="token operator">&lt;</span>Result<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">call</span><span class="token punctuation">(</span>Result result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    result<span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getIntExtra</span><span class="token punctuation">(</span><span class="token string">"key"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 <p>简简单单的一步就实现的startActivityForResult() 的整个流程</p>
 <h1 id="流程与原理"><a href="#流程与原理" class="headerlink" title="流程与原理"></a>流程与原理</h1><p>RxActivityResult 通过启动一个代理Activity–<code>HolderActivity</code>来作为两个Activity 之间数据交互的桥梁, 先在Activity A告诉RxActivityResult 所需要启动的目标Activity, 然后RxActivityResult 代为启动HolderActivity, HolderActivity 启动Activity B, 然后接受Activity B 传回的result, 然后通过回调方法</p>
 <p><img src="http://ofpmelh8h.bkt.clouddn.com/blog/20161116/210309487.png" alt="mark"></p>
 <h1 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h1><p>先放上三个基础的类, 会在后面被多次使用到</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * 最终返回给调用者的结果</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Result</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">    T mActivity;</div><div class="line">    <span class="keyword">int</span> mResultCode;</div><div class="line">    Intent mData;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> * 提供给HolderActivity 在获取到数据后来调用的接口</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">OnResult</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">response</span><span class="params">(<span class="keyword">int</span> resultCode, @Nullable Intent data)</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> * 打包了启动B Activity 的intent 和回调接口的类</div><div class="line"> * 到时候会中启动HolderActivity 之前保存到HolderActivity 当中</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Request</span> </span>&#123;</div><div class="line">    Intent mIntent;</div><div class="line">    OnResult mOnResult;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RxActivityResult</span> </span>&#123;</div><div class="line">  	<span class="comment">// ActivitiesLifecycleCallbacks 和整个流程关系不大, 用处就是注册中application 中,</span></div><div class="line">    <span class="comment">// 来获得当前应用的最顶层 Activity, 感兴趣的可以在后面看到</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ActivitiesLifecycleCallbacks mActivitiesLifecycleCallbacks;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">register</span><span class="params">(<span class="keyword">final</span> Application application)</span> </span>&#123;</div><div class="line">        mActivitiesLifecycleCallbacks = <span class="keyword">new</span> ActivitiesLifecycleCallbacks(application);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 获取一个RxActivityResult的Builder</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T extends Activity&gt; <span class="function">Builder&lt;T&gt; <span class="title">on</span><span class="params">(T activity)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Builder&lt;&gt;(activity);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// RxActivityResult核心</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Builder</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">Activity</span>&gt; </span>&#123;</div><div class="line">        <span class="keyword">final</span> Class mClass;</div><div class="line">        <span class="comment">// 一个Subject, 用于提供给外界订阅</span></div><div class="line">        <span class="keyword">final</span> PublishSubject&lt;Result&lt;T&gt;&gt; mSubject = PublishSubject.create();</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Builder</span><span class="params">(T activity)</span> </span>&#123;</div><div class="line">            <span class="keyword">if</span> (mActivitiesLifecycleCallbacks == <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"not registered"</span>);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            mClass = activity.getClass();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 提供给外界来启动intent, 本质上是将intent 打包在Request 当中,</span></div><div class="line">        <span class="comment">// 启动HolderActivity 并将Request 提供给HolderActivity</span></div><div class="line">        <span class="keyword">public</span> Observable&lt;Result&lt;T&gt;&gt; startIntent(Intent intent) &#123;</div><div class="line">            <span class="keyword">return</span> startHolderActivity(<span class="keyword">new</span> Request(intent));</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">private</span> Observable&lt;Result&lt;T&gt;&gt; startHolderActivity(Request request) &#123;</div><div class="line">            request.setOnResult(mOnResultActivity);</div><div class="line">            HolderActivity.setRequest(request);</div><div class="line">            mActivitiesLifecycleCallbacks.getLiveActivity() <span class="comment">// 获取当前应用顶层的Activity</span></div><div class="line">                .subscribe(<span class="keyword">new</span> Action1&lt;Activity&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(Activity activity)</span> </span>&#123;</div><div class="line">                        activity.startActivity(<span class="keyword">new</span> Intent(activity, HolderActivity.class)</div><div class="line">                                .addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));</div><div class="line">                    &#125;</div><div class="line">                &#125;);</div><div class="line"></div><div class="line">            <span class="keyword">return</span> mSubject.asObservable();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 一个回调接口, 当HolderActivity 接受到数据后会调用这个接口</span></div><div class="line">        <span class="keyword">private</span> OnResult mOnResultActivity = <span class="keyword">new</span> OnResult() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">response</span><span class="params">(<span class="keyword">int</span> resultCode, @Nullable Intent data)</span> </span>&#123;</div><div class="line">                <span class="keyword">if</span> (mActivitiesLifecycleCallbacks.getLiveActivityOrNull() == <span class="keyword">null</span></div><div class="line">                        || mActivitiesLifecycleCallbacks.getLiveActivityOrNull()</div><div class="line">                        .getClass() != mClass) &#123;</div><div class="line">                    <span class="keyword">return</span>;</div><div class="line">                &#125;</div><div class="line">                Activity activity = mActivitiesLifecycleCallbacks.getLiveActivityOrNull();</div><div class="line">                <span class="comment">// 通知subject 的订阅者, 将Activity Result 传递过去</span></div><div class="line">                mSubject.onNext(<span class="keyword">new</span> Result&lt;&gt;((T) activity, resultCode, data));</div><div class="line">                <span class="comment">// subject 的使命已完成, 同时这一次RxActivityResult 的流程结束</span></div><div class="line">                mSubject.onCompleted();</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * HolderActivity, 作为中间的桥梁来传递数据</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HolderActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Request mRequest;</div><div class="line"></div><div class="line">    <span class="comment">// 被 A Activity调用, 用于存储回调</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setRequest</span><span class="params">(Request request)</span> </span>&#123;</div><div class="line">        mRequest = request;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mResultCode;</div><div class="line">    <span class="keyword">private</span> Intent mData;</div><div class="line">    <span class="keyword">private</span> OnResult mOnResult;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line"></div><div class="line">        <span class="comment">// 验证回调是否存在</span></div><div class="line">        <span class="keyword">if</span> (mRequest == <span class="keyword">null</span>) &#123;</div><div class="line">            finish();</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        mOnResult = mRequest.getOnResult();</div><div class="line"></div><div class="line">        <span class="comment">// 确保是第一次打开, 防止B Activity被多次打开</span></div><div class="line">        <span class="keyword">if</span> (savedInstanceState != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 打开B Activity</span></div><div class="line">        startActivityForResult(mRequest.getIntent(), <span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onActivityResult</span><span class="params">(<span class="keyword">int</span> requestCode, <span class="keyword">int</span> resultCode, Intent data)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onActivityResult(requestCode, resultCode, data);</div><div class="line"></div><div class="line">        <span class="comment">// 接收到结果, 直接关闭这个界面</span></div><div class="line">        mResultCode = resultCode;</div><div class="line">        mData = data;</div><div class="line">        finish();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDestroy();</div><div class="line"></div><div class="line">        <span class="comment">// 在被结束前执行回调方法</span></div><div class="line">        <span class="keyword">if</span> (mOnResult != <span class="keyword">null</span>) &#123;</div><div class="line">            mOnResult.response(mResultCode, mData);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ActivitiesLifecycleCallbacks</span> </span>&#123;</div><div class="line">    <span class="keyword">final</span> Application mApplication;</div><div class="line">    <span class="keyword">volatile</span> Activity mLiveActivityOrNull;</div><div class="line">    Application.ActivityLifecycleCallbacks mActivityLifecycleCallbacks;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ActivitiesLifecycleCallbacks</span><span class="params">(Application application)</span> </span>&#123;</div><div class="line">        mApplication = application;</div><div class="line">        registerActivityLiftcycle();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">registerActivityLiftcycle</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (mActivityLifecycleCallbacks != <span class="keyword">null</span>) &#123;</div><div class="line">            mApplication.unregisterActivityLifecycleCallbacks(mActivityLifecycleCallbacks);</div><div class="line">        &#125;</div><div class="line">        mActivityLifecycleCallbacks = <span class="keyword">new</span> SimpleActivityLifecycleCallbacks() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onActivityCreated</span><span class="params">(Activity activity, Bundle bundle)</span> </span>&#123;</div><div class="line">                mLiveActivityOrNull = activity;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onActivityResumed</span><span class="params">(Activity activity)</span> </span>&#123;</div><div class="line">                mLiveActivityOrNull = activity;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onActivityPaused</span><span class="params">(Activity activity)</span> </span>&#123;</div><div class="line">                mLiveActivityOrNull = <span class="keyword">null</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        mApplication.registerActivityLifecycleCallbacks(mActivityLifecycleCallbacks);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function">Activity <span class="title">getLiveActivityOrNull</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mLiveActivityOrNull;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">volatile</span> <span class="keyword">boolean</span> mEmitted = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">    <span class="function">Observable&lt;Activity&gt; <span class="title">getLiveActivity</span><span class="params">()</span> </span>&#123;</div><div class="line">        mEmitted = <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">return</span> Observable.interval(<span class="number">50</span>, <span class="number">50</span>, TimeUnit.MILLISECONDS)</div><div class="line">                .map(<span class="keyword">new</span> Func1&lt;Long, Activity&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> Activity <span class="title">call</span><span class="params">(Long aLong)</span> </span>&#123;</div><div class="line">                        <span class="keyword">return</span> mLiveActivityOrNull;</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">                .takeWhile(<span class="keyword">new</span> Func1&lt;Activity, Boolean&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> Boolean <span class="title">call</span><span class="params">(Activity activity)</span> </span>&#123;</div><div class="line">                        <span class="keyword">boolean</span> continueEmitting = !mEmitted;</div><div class="line">                        mEmitted = activity != <span class="keyword">null</span>;</div><div class="line">                        <span class="keyword">return</span> continueEmitting;</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">                .filter(<span class="keyword">new</span> Func1&lt;Activity, Boolean&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> Boolean <span class="title">call</span><span class="params">(Activity activity)</span> </span>&#123;</div><div class="line">                        <span class="keyword">return</span> activity != <span class="keyword">null</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/*
+ * 最终返回给调用者的结果
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Result</span><span class="token operator">&lt;</span>T<span class="token operator">></span> <span class="token punctuation">{</span>
+    T mActivity<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> mResultCode<span class="token punctuation">;</span>
+    Intent mData<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/*
+ * 提供给HolderActivity 在获取到数据后来调用的接口
+ */</span>
+<span class="token keyword">interface</span> <span class="token class-name">OnResult</span> <span class="token punctuation">{</span>
+    <span class="token keyword">void</span> <span class="token function">response</span><span class="token punctuation">(</span><span class="token keyword">int</span> resultCode<span class="token punctuation">,</span> <span class="token annotation punctuation">@Nullable</span> Intent data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/*
+ * 打包了启动B Activity 的intent 和回调接口的类
+ * 到时候会中启动HolderActivity 之前保存到HolderActivity 当中
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Request</span> <span class="token punctuation">{</span>
+    Intent mIntent<span class="token punctuation">;</span>
+    OnResult mOnResult<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RxActivityResult</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// ActivitiesLifecycleCallbacks 和整个流程关系不大, 用处就是注册中application 中,</span>
+    <span class="token comment" spellcheck="true">// 来获得当前应用的最顶层 Activity, 感兴趣的可以在后面看到</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> ActivitiesLifecycleCallbacks mActivitiesLifecycleCallbacks<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">register</span><span class="token punctuation">(</span><span class="token keyword">final</span> Application application<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        mActivitiesLifecycleCallbacks <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ActivitiesLifecycleCallbacks</span><span class="token punctuation">(</span>application<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// 获取一个RxActivityResult的Builder</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token operator">&lt;</span>T <span class="token keyword">extends</span> <span class="token class-name">Activity</span><span class="token operator">></span> Builder<span class="token operator">&lt;</span>T<span class="token operator">></span> <span class="token function">on</span><span class="token punctuation">(</span>T activity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Builder</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span>activity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// RxActivityResult核心</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Builder</span><span class="token operator">&lt;</span>T <span class="token keyword">extends</span> <span class="token class-name">Activity</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> Class <span class="token class-name">mClass</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 一个Subject, 用于提供给外界订阅</span>
+        <span class="token keyword">final</span> PublishSubject<span class="token operator">&lt;</span>Result<span class="token operator">&lt;</span>T<span class="token operator">>></span> mSubject <span class="token operator">=</span> PublishSubject<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token function">Builder</span><span class="token punctuation">(</span>T activity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>mActivitiesLifecycleCallbacks <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalStateException</span><span class="token punctuation">(</span><span class="token string">"not registered"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            mClass <span class="token operator">=</span> activity<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">// 提供给外界来启动intent, 本质上是将intent 打包在Request 当中,</span>
+        <span class="token comment" spellcheck="true">// 启动HolderActivity 并将Request 提供给HolderActivity</span>
+        <span class="token keyword">public</span> Observable<span class="token operator">&lt;</span>Result<span class="token operator">&lt;</span>T<span class="token operator">>></span> <span class="token function">startIntent</span><span class="token punctuation">(</span>Intent intent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token function">startHolderActivity</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Request</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">private</span> Observable<span class="token operator">&lt;</span>Result<span class="token operator">&lt;</span>T<span class="token operator">>></span> <span class="token function">startHolderActivity</span><span class="token punctuation">(</span>Request request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            request<span class="token punctuation">.</span><span class="token function">setOnResult</span><span class="token punctuation">(</span>mOnResultActivity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            HolderActivity<span class="token punctuation">.</span><span class="token function">setRequest</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            mActivitiesLifecycleCallbacks<span class="token punctuation">.</span><span class="token function">getLiveActivity</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 获取当前应用顶层的Activity</span>
+                <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Action1</span><span class="token operator">&lt;</span>Activity<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token annotation punctuation">@Override</span>
+                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">call</span><span class="token punctuation">(</span>Activity activity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        activity<span class="token punctuation">.</span><span class="token function">startActivity</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Intent</span><span class="token punctuation">(</span>activity<span class="token punctuation">,</span> HolderActivity<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+                                <span class="token punctuation">.</span><span class="token function">addFlags</span><span class="token punctuation">(</span>Intent<span class="token punctuation">.</span>FLAG_ACTIVITY_NO_ANIMATION<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">return</span> mSubject<span class="token punctuation">.</span><span class="token function">asObservable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">// 一个回调接口, 当HolderActivity 接受到数据后会调用这个接口</span>
+        <span class="token keyword">private</span> OnResult mOnResultActivity <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">OnResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">response</span><span class="token punctuation">(</span><span class="token keyword">int</span> resultCode<span class="token punctuation">,</span> <span class="token annotation punctuation">@Nullable</span> Intent data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>mActivitiesLifecycleCallbacks<span class="token punctuation">.</span><span class="token function">getLiveActivityOrNull</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> null
+                        <span class="token operator">||</span> mActivitiesLifecycleCallbacks<span class="token punctuation">.</span><span class="token function">getLiveActivityOrNull</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                        <span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> mClass<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">return</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                Activity activity <span class="token operator">=</span> mActivitiesLifecycleCallbacks<span class="token punctuation">.</span><span class="token function">getLiveActivityOrNull</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">// 通知subject 的订阅者, 将Activity Result 传递过去</span>
+                mSubject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Result</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">(</span>T<span class="token punctuation">)</span> activity<span class="token punctuation">,</span> resultCode<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">// subject 的使命已完成, 同时这一次RxActivityResult 的流程结束</span>
+                mSubject<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/*
+ * HolderActivity, 作为中间的桥梁来传递数据
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HolderActivity</span> <span class="token keyword">extends</span> <span class="token class-name">Activity</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> Request mRequest<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 被 A Activity调用, 用于存储回调</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">setRequest</span><span class="token punctuation">(</span>Request request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        mRequest <span class="token operator">=</span> request<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">int</span> mResultCode<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> Intent mData<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> OnResult mOnResult<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span>Bundle savedInstanceState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 验证回调是否存在</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>mRequest <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">finish</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        mOnResult <span class="token operator">=</span> mRequest<span class="token punctuation">.</span><span class="token function">getOnResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 确保是第一次打开, 防止B Activity被多次打开</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>savedInstanceState <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">// 打开B Activity</span>
+        <span class="token function">startActivityForResult</span><span class="token punctuation">(</span>mRequest<span class="token punctuation">.</span><span class="token function">getIntent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onActivityResult</span><span class="token punctuation">(</span><span class="token keyword">int</span> requestCode<span class="token punctuation">,</span> <span class="token keyword">int</span> resultCode<span class="token punctuation">,</span> Intent data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onActivityResult</span><span class="token punctuation">(</span>requestCode<span class="token punctuation">,</span> resultCode<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 接收到结果, 直接关闭这个界面</span>
+        mResultCode <span class="token operator">=</span> resultCode<span class="token punctuation">;</span>
+        mData <span class="token operator">=</span> data<span class="token punctuation">;</span>
+        <span class="token function">finish</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 在被结束前执行回调方法</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>mOnResult <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            mOnResult<span class="token punctuation">.</span><span class="token function">response</span><span class="token punctuation">(</span>mResultCode<span class="token punctuation">,</span> mData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ActivitiesLifecycleCallbacks</span> <span class="token punctuation">{</span>
+    <span class="token keyword">final</span> Application mApplication<span class="token punctuation">;</span>
+    <span class="token keyword">volatile</span> Activity mLiveActivityOrNull<span class="token punctuation">;</span>
+    Application<span class="token punctuation">.</span>ActivityLifecycleCallbacks mActivityLifecycleCallbacks<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">ActivitiesLifecycleCallbacks</span><span class="token punctuation">(</span>Application application<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        mApplication <span class="token operator">=</span> application<span class="token punctuation">;</span>
+        <span class="token function">registerActivityLiftcycle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">registerActivityLiftcycle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>mActivityLifecycleCallbacks <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            mApplication<span class="token punctuation">.</span><span class="token function">unregisterActivityLifecycleCallbacks</span><span class="token punctuation">(</span>mActivityLifecycleCallbacks<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        mActivityLifecycleCallbacks <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleActivityLifecycleCallbacks</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onActivityCreated</span><span class="token punctuation">(</span>Activity activity<span class="token punctuation">,</span> Bundle bundle<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                mLiveActivityOrNull <span class="token operator">=</span> activity<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onActivityResumed</span><span class="token punctuation">(</span>Activity activity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                mLiveActivityOrNull <span class="token operator">=</span> activity<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onActivityPaused</span><span class="token punctuation">(</span>Activity activity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                mLiveActivityOrNull <span class="token operator">=</span> null<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+        mApplication<span class="token punctuation">.</span><span class="token function">registerActivityLifecycleCallbacks</span><span class="token punctuation">(</span>mActivityLifecycleCallbacks<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    Activity <span class="token function">getLiveActivityOrNull</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> mLiveActivityOrNull<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">volatile</span> <span class="token keyword">boolean</span> mEmitted <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+    Observable<span class="token operator">&lt;</span>Activity<span class="token operator">></span> <span class="token function">getLiveActivity</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        mEmitted <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> Observable<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">,</span> TimeUnit<span class="token punctuation">.</span>MILLISECONDS<span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Func1</span><span class="token operator">&lt;</span>Long<span class="token punctuation">,</span> Activity<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token annotation punctuation">@Override</span>
+                    <span class="token keyword">public</span> Activity <span class="token function">call</span><span class="token punctuation">(</span>Long aLong<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">return</span> mLiveActivityOrNull<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">takeWhile</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Func1</span><span class="token operator">&lt;</span>Activity<span class="token punctuation">,</span> Boolean<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token annotation punctuation">@Override</span>
+                    <span class="token keyword">public</span> Boolean <span class="token function">call</span><span class="token punctuation">(</span>Activity activity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">boolean</span> continueEmitting <span class="token operator">=</span> <span class="token operator">!</span>mEmitted<span class="token punctuation">;</span>
+                        mEmitted <span class="token operator">=</span> activity <span class="token operator">!=</span> null<span class="token punctuation">;</span>
+                        <span class="token keyword">return</span> continueEmitting<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Func1</span><span class="token operator">&lt;</span>Activity<span class="token punctuation">,</span> Boolean<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token annotation punctuation">@Override</span>
+                    <span class="token keyword">public</span> Boolean <span class="token function">call</span><span class="token punctuation">(</span>Activity activity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">return</span> activity <span class="token operator">!=</span> null<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>其实分析下来, 发现并没有特别深奥, 就是一开始理解的时候不是很容易理顺其中的逻辑.</p>
 <p>类似的库还有<a href="https://github.com/tbruyelle/RxPermissions" target="_blank" rel="external">RxPermissions</a>, 一个使用RxJava来简化Android 6.0+系统中权限申请的流程, 应该也是通过启动一个透明的中间Activity 并在这个Activity 中申请权限, 得到申请结果后, 然后通过回调告诉订阅者, 具体代码暂时不分析了, 可以去源码库中查看.</p>
 
@@ -377,6 +614,9 @@
                 <!-- Post Comments -->
                 
                     
+
+
+
 
 
 
@@ -428,9 +668,14 @@
 
 
                     <!-- Import File -->
-<script src="/js/lazyload.min.js"></script>
-<script src="/js/js.min.js"></script>
-<script src="/js/nprogress.js"></script>
+
+    <script src="/js/lazyload.min.js"></script>
+    <script src="/js/js.min.js"></script>
+
+
+
+    <script src="/js/nprogress.js"></script>
+
 
 <script type="text/javascript">
     NProgress.configure({
@@ -465,10 +710,7 @@
 
 
 
-<!-- Swiftye -->
 
-
-<!-- Local Search-->
 
 
 <!-- Window Load-->
@@ -481,6 +723,21 @@
 
 <!-- MathJax Load-->
 
+<script>
+    <!-- Offer LazyLoad -->
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    <!-- Start Queue -->
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
 
                 </main>
             </div>
